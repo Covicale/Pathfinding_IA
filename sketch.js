@@ -35,7 +35,7 @@ function setup() {
   end.show(color(255, 0, 0));
 
   // Ejecutamos el recorrido A Estrella
-  AStar(start, end, heuristic);
+  AStar(start, end, heuristic, gridObj);
 
   // Una vez recorrido, mediante el atributo parent del nodo, podemos
   // obtener el camino para llegar al nodo, para esto,

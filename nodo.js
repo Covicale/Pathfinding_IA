@@ -10,7 +10,7 @@ function EliminarNodo(set, nodo){
 // Objeto nodo que será cada posición posible de la cuadricula
 function Nodo(i, j){
     this.i = i, this.j = j; // Posicion (i, j) en la cuadricula
-    this.f = 0, this.g = 99999999, this.h = 0; // Costos utilizados en A estrella
+    this.f = inf, this.g = inf, this.h = 0; // Costos utilizados en A estrella
     this.neighbors = []; // Vector con sus vecinos
     this.parent = -1; // Nodo padre, en caso de no existir será -1
   

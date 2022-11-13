@@ -33,17 +33,24 @@ function EuclideanDistance(node, end){
   return Math.hypot(end.i - node.i, end.j - node.j)
 }
 
-function AStar(start, end, euclidean){
+function AStar(start, end, euclidean, grid){
 
   start.g = 0; // El nodo de inicio sabemos que tiene coste G = 0
+  start.h = (euclidean > 0 ? EuclideanDistance(start, end) : ManhatannDistance(start, end));
+  start.f = start.h;
 
   let openSet = []; // Almacenaremos los nodos que nos faltan por inspeccionar
   let closedSet = []; // Almacenaremos los nodos ya inspeccionados
 
   openSet.push(start) // Comenzamos metiendo en openSet el nodo inicial
 
+  let nodos_generados = 1, iteracion = 0;
+
   // Mientras hayan nodos que inspeccionar, se continua
   while (openSet.length > 0) {
+
+    // Sumamos una iteracion
+    ++iteracion;
 
     // Cogemos el nodo mas optimo para inspeccionarlo, para ello
     // mediante la variable nodoOptimo, almacenaremos la posicion del nodo
@@ -68,26 +75,32 @@ function AStar(start, end, euclidean){
 
     // Obtenemos todos los vecinos del nodo que estamos inspeccionando e iteramos
     let vecinos = nodoActual.neighbors;
-    for(let i = 0; i < vecinos.length; ++i){
-      
+    for(let i = 0; i < vecinos.length; ++i){      
+
       // En el caso de que el vecino no se haya inspeccionado aún
       if(!closedSet.includes(vecinos[i])){
 
-        // Almacenamos en una variable el posible candidato del coste G
-        let temporalCostG = nodoActual.g + 1
+        ++nodos_generados;
 
+        // Almacenamos en una variable el posible candidato del coste G
+        let temporalCostG = nodoActual.g + 1;
         // Si este coste G, es menor que el suyo propio
         // Actualizamos tanto su padre, como sus costes
         if(temporalCostG < vecinos[i].g){
           vecinos[i].parent = nodoActual;
           vecinos[i].g = temporalCostG;
           vecinos[i].h = (euclidean > 0 ? EuclideanDistance(vecinos[i], end) : ManhatannDistance(vecinos[i], end));
-          vecinos[i].f = vecinos[i].g + vecinos[i].h;
+          vecinos[i].f = vecinos[i].h;
 
           // Si el nodo no esta en el openSet, lo introducimos
-          if(!openSet.includes(vecinos[i])) openSet.push(vecinos[i]);
+          if(!openSet.includes(vecinos[i])){
+            openSet.push(vecinos[i]);
+          }
         }
       }
     }
   };
+
+  document.getElementById("nodos_generados").innerHTML = nodos_generados;
+  document.getElementById("iteraciones").innerHTML = iteracion;
 }

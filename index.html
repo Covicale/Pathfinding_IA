@@ -21,17 +21,25 @@
         <input type="number", value="0", id="initial_i">
         <input type="number", value="0", id="initial_j">
         <label for="NodoDestino">Nodo Destino (i, j)</label>
-        <input type="number", value="12" id="final_i">
-        <input type="number", value="12" id="final_j">
+        <input type="number", value="9" id="final_i">
+        <input type="number", value="9" id="final_j">
         <label for="Heuristica">Heuristica</label>
         <select name="Heuristica" id="heuristica">
             <option value="0">Manhatann</option>
             <option value="1", selected="selected">Euclidean</option>
         </select>
         <label for="Grid">Grid (Anchura x Altura)</label>
-        <input type="number", value="25", id="grid_width">
-        <input type="number", value="25", id="grid_height">
+        <input type="number", value="10", id="grid_width">
+        <input type="number", value="10", id="grid_height">
         <button style="margin-left: 20px;" onclick="setup()">Restart</button>
+    </div>
+
+    <div id="resultados">
+        <label for="NodosGenerados">Nodos Generados: </label>
+        <label id="nodos_generados"></label>
+
+        <label for="Iteraciones">Iteraciones: </label>
+        <label id="iteraciones"></label>
     </div>
     <div id="sketch-holder"></div>
   </body>

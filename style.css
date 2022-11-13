@@ -20,6 +20,10 @@ label{
     padding: 0 10px;
 }
 
+#resultados {
+    margin: 20px;
+}
+
 input[type=number] {
     width: 50px;
 }
