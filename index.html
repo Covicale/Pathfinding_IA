@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.min.js"></script>
+    <script src="sketch.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <div id="opciones">
+        <label for="Nodo Inicial">Nodo Inicial (i, j)</label>
+        <input type="number">
+        <input type="number">
+        <label for="Nodo Destino">Nodo Destino (i, j)</label>
+        <input type="number">
+        <input type="number">
+        <label for="Heuristica">Heuristica</label>
+        <select name="cars" id="cars">
+            <option value="manhatann">Manhatann</option>
+            <option value="euclidean">Euclidean</option>
+        </select>
+    </div>
+    <div id="sketch-holder"></div>
+  </body>
+</html>
