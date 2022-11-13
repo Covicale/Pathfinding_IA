@@ -7,8 +7,13 @@ html, body {
     padding: 0;
 }
 
+#sketch-holder{
+    display: block;
+    margin: 10px 30px;
+}
+
 #opciones{
-    margin: 10px;
+    margin: 20px;
 }
 
 label{
